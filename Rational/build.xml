@@ -1,0 +1,19 @@
+<project name="Rational">
+   <target name="compile">
+      <mkdir dir="classes"/>
+      <javac srcdir="." destdir="classes" includeantruntime="true">
+      	<classpath location="lib/junit.jar" />
+      </javac>
+   </target>
+   <target name="clean" description="clean up">
+	   <delete dir="classes"/>
+	</target>
+	<target name="test" depends="compile">
+	  <junit showoutput="yes" printsummary="yes" haltonfailure="no">
+      	<classpath location="classes" />
+      	<classpath location="lib/junit.jar" />
+      	<classpath location="lib/hamcrest.jar" />
+      	<test name="RationalTest" />
+      </junit>
+    </target>
+</project>
